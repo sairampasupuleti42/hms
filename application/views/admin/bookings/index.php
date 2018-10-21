@@ -11,11 +11,9 @@
                                 <!-- tools box -->
                                 <div class="pull-right box-tools ">
                                     <a type="button" class="btn btn-primary btn-sm  pull-right"
-                                        data-toggle="tooltip" title="Date range">
-                                        <i class="fa fa-calendar"></i></a>
-                                    <a type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
-                                        data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                                        <i class="fa fa-minus"></i></a>
+                                        data-toggle="tooltip" href="<?php echo base_url($_SESSION['USER_TYPE'].'hotels/add');?>" title="Date range">
+                                        <i class="fa fa-plus"></i> Add hotel</a>
+
                                 </div>
                                 <!-- /. tools -->
                                 
@@ -56,4 +54,4 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        
+

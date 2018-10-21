@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Satish
- * Date: 10/21/2018
- * Time: 7:43 PM
- */
+echo "<pre>";
+!empty($hotels) ? print_r($hotels) :'';
+echo "</pre>";
+?>

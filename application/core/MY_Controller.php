@@ -22,7 +22,11 @@ class MY_Controller extends CI_Controller
     {
         return hash('sha256', $password);
     }
-
+    function getActivePage($page){
+        if($this->uri->segment(3)==$page){
+            return "class='active'";
+        }
+    }
     function validRequest()
     {
         $auth = $this->api->getAuth();
@@ -108,9 +112,9 @@ class MY_Controller extends CI_Controller
 
     public function _home($page_name = 'index', $data = array())
     {
-        $this->load->view('header', $this->header_data);
+        $this->load->view('home/header', $this->header_data);
         $this->load->view($page_name, $data);
-        $this->load->view('footer', $this->header_data);
+        $this->load->view('home/footer', $this->header_data);
     }
     function _login(){
 		if(!isset($_SESSION['_SESS_ID']) && empty($_SESSION['_SESS_ID'])){

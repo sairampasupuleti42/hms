@@ -47,12 +47,12 @@ Table of contents
 /**
 * Plugins
 **/
-@import url('./../bootstrap/dist/css/bootstrap.min.css');
-@import url('navs.css');
-@import url('font-awesome.min.css');
-@import url('owl.carousel.min.css');
-@import url('bootstrap-datetimepicker.min.css');
-@import url('jquery-ui.min.css');
+@import url('./bootstrap/dist/css/bootstrap.min.css');
+@import url('./navs.css');
+@import url('./font-awesome/css/font-awesome.min.css');
+/*@import url('owl.carousel.min.css');*/
+/*@import url('bootstrap-datetimepicker.min.css');*/
+@import url('./jquery/dist/jquery-ui.min.css');
 /**
 * Starting styles
 **/

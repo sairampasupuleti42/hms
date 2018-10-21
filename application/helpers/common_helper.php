@@ -477,4 +477,38 @@ function removeFolder($dirname)
     rmdir($dirname);
     return true;
 }
+
+if (!function_exists("isLoginExists")) {
+    function isLoginExists()
+    {
+        if (isset($_SESSION['LAST_REQUEST_TIME'])) {
+            if (time() - $_SESSION['LAST_REQUEST_TIME'] > 700) {
+                $_SESSION = array();
+                session_destroy();
+                redirect(base_url() . 'wi-logout/?session_expired=1');
+            }
+        }
+        $_SESSION['LAST_REQUEST_TIME'] = time();
+    }
+}
+if (!function_exists("_logged")) {
+    function _logged()
+    {
+        if (isset($_SESSION)) {
+            if (empty($_SESSION['USER_ID'])) {
+                session_destroy();
+                redirect(base_url() . 'admin/logout/');
+            }
+        }
+    }
+}
+
+if (!function_exists("generateRefNo")) {
+    function generateRefNo($type,$number)
+    {
+        $finance_year = financialYear();
+        return 'MSAP'.$type.''. $finance_year . '' . $number;
+    }
+}
+
 ?>

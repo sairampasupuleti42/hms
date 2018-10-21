@@ -1,7 +1,1 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Satish
- * Date: 10/21/2018
- * Time: 11:32 PM
- */
+<h1>Hotel List</h1>
