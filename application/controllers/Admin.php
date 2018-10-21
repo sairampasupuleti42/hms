@@ -13,6 +13,7 @@ class Admin extends MY_Controller
     function auth()
     {
         $data = array();
+        $data['page_title']="Mosapp Hotels";
         if (!empty($_POST['LOGIN']) && !empty($_POST['email']) && !empty($_POST['password'])) {
             $user = $this->admin->login(['email' => $_POST['email'], 'password' => $_POST['password']]);
             if (!empty($user['_id'])) {
@@ -42,29 +43,34 @@ class Admin extends MY_Controller
         $data = array();
         //$this->_login();
         _logged();
-        $this->_template('admin/dashboard');
+        $data['page_title']="Dashboard";
+        $this->_template('admin/dashboard',$data);
     }
 
     function bookings()
     {
         $data = array();
+        $data['page_title']="Bookings";
         $this->_template('admin/bookings/index');
     }
 
     function vendors()
     {
         $data = array();
+        $data['page_title']="Vendors";
         $this->_template('admin/vendors/index');
     }
 
     function customers()
     {
         $data = array();
+        $data['page_title']="Customers";
         $this->_template('admin/customers/index');
     }
 
     function hotels($act = '', $st = '')
     {
+
         $data = array();
         if (!empty($_GET['act']) && $_GET['act'] == "del" && !empty($_GET['pk_id'])) {
             $this->api->delBill($_GET['pk_id']);
@@ -175,6 +181,7 @@ class Admin extends MY_Controller
             $this->pagenavi->process($this->hapi, 'searchHotels');
             $data['PAGING'] = $this->pagenavi->links_html;
             $data['hotels'] = $this->pagenavi->items;
+
             $this->_template('admin/hotels/index', $data);
         }
     }

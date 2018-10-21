@@ -129,7 +129,7 @@
                                 <li><a href="hotel-offers.html">Hot Offers</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu mega-dropdown-menu row">
                                 <li>

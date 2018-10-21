@@ -61,14 +61,14 @@ _logged();
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo base_url() ?>dist/img/user2-160x160.jpg" class="user-image"
+                            <img src="<?php echo base_url() ?>dist/img/avatar5.png" class="user-image"
                                  alt="User Image">
                             <span class="hidden-xs"><?php echo !empty($_SESSION['USER_NAME']) ? $_SESSION['USER_NAME'] : ''; ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                                 <p>
                                     <?php echo !empty($_SESSION['USER_NAME']) ? $_SESSION['USER_NAME'] : ''; ?>
@@ -122,16 +122,3 @@ _logged();
         <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-                <small>Control panel</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
