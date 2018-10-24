@@ -56,15 +56,11 @@ class Admin extends MY_Controller
     {
         $data = array();
         $data['page_title']="Bookings";
-        $this->_template('admin/bookings/index');
+        $data['bookings']=$this->admin->getBookings();
+        $this->_template('admin/bookings/index',$data);
     }
 
-    function vendors()
-    {
-        $data = array();
-        $data['page_title']="Vendors";
-        $this->_template('admin/vendors/index');
-    }
+
 
     function customers()
     {

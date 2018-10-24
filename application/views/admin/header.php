@@ -107,10 +107,10 @@ _logged();
                 <li data-page="bookings"><a
                             href="<?php echo !empty($_SESSION['USER_TYPE']) ? base_url($_SESSION['USER_TYPE']) . '/bookings/' : ''; ?>"><i
                                 class="fa fa-circle-o text-aqua"></i> <span>Bookings</span></a></li>
-                <li data-page="vendors"
-                    class="<?php echo (isset($_SESSION) && $_SESSION['USER_TYPE'] == 'vendors') ? 'hide' : ''; ?>"><a
-                            href="<?php echo (isset($_SESSION)) ? base_url($_SESSION['USER_TYPE']) : ''; ?>vendors/"><i
-                                class="fa fa-circle-o text-aqua"></i> <span>Vendors</span></a></li>
+            <!--    <li data-page="vendors"
+                    class="<?php /*echo (isset($_SESSION) && $_SESSION['USER_TYPE'] == 'vendors') ? 'hide' : ''; */?>"><a
+                            href="<?php /*echo (isset($_SESSION)) ? base_url($_SESSION['USER_TYPE']) : ''; */?>vendors/"><i
+                                class="fa fa-circle-o text-aqua"></i> <span>Vendors</span></a></li>-->
                 <li data-page="customers"><a
                             href="<?php echo (isset($_SESSION)) ? base_url($_SESSION['USER_TYPE']) : ''; ?>/customers/"><i
                                 class="fa fa-circle-o text-aqua"></i> <span>Customers</span></a></li>

@@ -1,10 +1,12 @@
 <?php
+
 class Home_model extends CI_Model
 {
     function __construct()
     {
         parent::__construct();
     }
+
     function getHotelById($hotel_id)
     {
         $this->db->select("h.*");
@@ -15,6 +17,35 @@ class Home_model extends CI_Model
         }
         return false;
     }
+
+    function getBookingDetails($id)
+    {
+        $this->db->select("b.*");
+        $this->db->where("b._id", $id);
+        $query = $this->db->get("tbl_bookings b");
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        }
+        return false;
+    }
+
+    function bookNow($pdata)
+    {
+        $this->db->insert("tbl_bookings", $pdata);
+        return $this->db->insert_id();
+    }
+
+    function getHotelBySlug($hotelSlug)
+    {
+        $this->db->select("h.*");
+        $this->db->where("h.hotelPermaLink", $hotelSlug);
+        $query = $this->db->get("tbl_hotels h");
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        }
+        return false;
+    }
+
     function searchHotels($s = array(), $mode = "DATA")
     {
         if ($mode == "CNT") {

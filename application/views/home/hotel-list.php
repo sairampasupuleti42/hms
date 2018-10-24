@@ -53,7 +53,7 @@
                                             <p class="block-minor">From: <?php echo @$hotel['hotelCity'];?></p>
                                             <p><?php echo @$hotel['hotelType'];?> </p>
                                             <div class="grid-btn">
-                                                <a href="<?php echo base_url()?>hotel/<?php echo @$hotel['hotelPermaLink'];?>"
+                                                <a href="<?php echo base_url()?>hotel/<?php echo @$hotel['hotelPermaLink'];?>/?checkIn=<?php echo @$_GET['checkIn'];?>&checkOut=<?php echo @$_GET['checkOut'];?>&rooms=<?php echo @$_GET['rooms'];?>&adults=<?php echo @$_GET['adults'];?>&child=<?php echo @$_GET['child'];?>"
                                                    class="btn btn-orange btn-block btn-lg">View More</a>
                                             </div><!-- end grid-btn -->
                                         </div><!-- end h-grid-info -->

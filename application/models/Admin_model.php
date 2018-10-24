@@ -92,4 +92,13 @@ class Admin_model extends CI_Model
         }
         return false;
     }
+    function getBookings(){
+        $this->db->select("b.*");
+        $this->db->order_by("b._id DESC");
+        $query = $this->db->get("tbl_bookings b");
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
 }

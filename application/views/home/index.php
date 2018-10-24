@@ -206,7 +206,7 @@
                     }
                     ?>
                     <div class="view-all text-center">
-                        <a href="#hotel-grid-right-sidebar.html" class="btn btn-orange">View All</a>
+                        <a href="<?php echo base_url('hotels');?>" class="btn btn-orange">View All</a>
                     </div><!-- end view-all -->
                 </div><!-- end columns -->
             </div><!-- end row -->
