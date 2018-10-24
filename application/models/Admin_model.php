@@ -72,4 +72,24 @@ class Admin_model extends CI_Model
             return $query->result_array();
         }
     }
+    function getCustomerCnt()
+    {
+
+        $this->db->select('COUNT(_id) as cust_cnt');
+        $query = $this->db->get("tbl_customers");
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        }
+        return false;
+    }
+    function getBookingsCnt()
+    {
+
+        $this->db->select('COUNT(_id) as booking_cnt');
+        $query = $this->db->get("tbl_bookings");
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        }
+        return false;
+    }
 }

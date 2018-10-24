@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-               Customers
+            Customers
             <!--                <small>Control panel</small>-->
         </h1>
         <ol class="breadcrumb">
@@ -11,62 +11,73 @@
             <li class="active">Dashboard</li>
         </ol>
     </section>
-
     <!-- Main content -->
-            <section class="content">
-                <!-- Main row -->
-                <div class="row">
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-12 connectedSortable">
-                        <!-- Map box -->
-                        <div class="box box-danger">
-                            <div class="box-header">
-                                <!-- tools box -->
-                                <div class="pull-right box-tools ">
-                                    <a type="button" class="btn btn-primary btn-sm  pull-right"
-                                        data-toggle="tooltip" title="Date range">
-                                        <i class="fa fa-calendar"></i></a>
-                                    <a type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
-                                        data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                                        <i class="fa fa-minus"></i></a>
-                                </div>
-                                <!-- /. tools -->
-                                
-                                <h3 class="box-title">
-                                    
-                                </h3>
-                            </div>
-                            <div class="box-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Sr.no</th>
-                                            <th>Booking Id</th>
-                                            <th>Hotel(Room)</th>
-                                            <th>Customer</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>SP0001</td>
-                                            <td>401</td>
-                                            <td>Sairam</td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.box-body-->
+    <section class="content">
+        <!-- Main row -->
+        <div class="row">
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-12 connectedSortable">
+                <!-- Map box -->
+                <div class="box box-danger">
+                    <div class="box-header">
+                        <!-- tools box -->
+                        <div class="pull-right box-tools ">
+
                         </div>
-                        <!-- /.box -->
-                    </section>
-                    <!--  col -->
+                        <!-- /. tools -->
+                        <h3 class="box-title">
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Sr.no</th>
+                                <th>Customer Id</th>
+                                <th>Name of Customer</th>
+                                <th>Email</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            if (!empty($customers)) {
+                                $i=1;
+                                foreach ($customers as $customer) {
+                                    ?>
+                                    <tr>
+                                        <td><?php
+                                            echo $i;
+                                            ?></td>
+                                        <td><?php
+                                            echo @$customer['customerId'];
+                                            ?></td>
+                                        <td><?php
+                                            echo @$customer['customerName'];
+                                            ?></td>
+                                        <td><?php
+                                            echo @$customer['customerEmail'];
+                                            ?></td>
+
+                                    </tr>
+                                    <?php
+                                    $i++;
+                                }
+                            }
+                            ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body-->
                 </div>
-                <!-- /.row (main row) -->
+                <!-- /.box -->
             </section>
-            <!-- /.content -->
+            <!--  col -->
         </div>
-        <!-- /.content-wrapper -->
+        <!-- /.row (main row) -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
         

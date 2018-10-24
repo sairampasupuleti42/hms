@@ -7,7 +7,7 @@ _logged();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mosapp | Dashboard</title>
+    <title><?php echo @$title;?> | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -44,9 +44,9 @@ _logged();
         <!-- Logo -->
         <a href="<?php echo base_url(); ?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>Mo</b>sapp</span>
+            <span class="logo-mini"><b><?php echo @$app_title;?></b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Mo</b>sapp</span>
+            <span class="logo-lg"><b><?php echo @$app_title;?></b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -68,7 +68,7 @@ _logged();
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+                                <img src="<?php echo base_url() ?>dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                                 <p>
                                     <?php echo !empty($_SESSION['USER_NAME']) ? $_SESSION['USER_NAME'] : ''; ?>

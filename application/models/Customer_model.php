@@ -1,45 +1,56 @@
 <?php
-class Category_model extends CI_Model
+class Customer_model extends CI_Model
 {
     function __construct()
     {
         parent::__construct();
     }
-    function addCategory($pdata)
+    function addCustomer($pdata)
     {
-        $this->db->insert("tbl_categories", $pdata);
+        $this->db->insert("tbl_customers", $pdata);
         return $this->db->insert_id();
     }
-    function updateCategory($pdata, $category_id)
+    function updateCustomer($pdata, $customer_id)
     {
-        $this->db->where("id", $category_id);
-        return $this->db->update("tbl_categories", $pdata);
+        $this->db->where("_id", $customer_id);
+        return $this->db->update("tbl_customers", $pdata);
     }
-    function delCategory($category_id)
+    function delCustomer($customer_id)
     {
-        $this->db->where("id", $category_id);
-        return $this->db->delete("tbl_categories");
+        $this->db->where("_id", $customer_id);
+        return $this->db->delete("tbl_customers");
     }
-    function getCategoryById($category_id)
+    function getCustomerById($customer_id)
     {
         $this->db->select("c.*");
-        $this->db->where("c.id", $category_id);
-        $query = $this->db->get("tbl_categories c");
+        $this->db->where("c._id", $customer_id);
+        $query = $this->db->get("tbl_customers c");
         if ($query->num_rows() > 0) {
             return $query->row_array();
         }
         return false;
     }
-    function checkCategoryInDB($category_name)
+    function customerLogin($pdata)
     {
-        $this->db->select('*');
-        $this->db->where('name', $category_name);
-        $query = $this->db->get("tbl_categories c");
+        $this->db->select("c.*");
+        $this->db->where("c.customerEmail", $pdata['customerEmail']);
+        $this->db->where("c.customerPassword", $pdata['customerPassword']);
+        $query = $this->db->get("tbl_customers c");
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        }
+        return false;
+    }
+    function checkCustomerInDB($customerEmail)
+    {
+        $this->db->select('c.*');
+        $this->db->where('customerEmail', $customerEmail);
+        $query = $this->db->get("tbl_customers c");
         if ($query->num_rows() > 0) {
             return true;
         }
     }
-    function searchCategories($s = array(), $mode = "DATA")
+    function searchCustomers($s = array(), $mode = "DATA")
     {
         if ($mode == "CNT") {
             $this->db->select("COUNT(1) as CNT");
@@ -49,16 +60,12 @@ class Category_model extends CI_Model
         if (isset($s['limit']) && isset($s['offset'])) {
             $this->db->limit($s['limit'], $s['offset']);
         }
-        if(isset($s['language_id']) && !empty($s['language_id'])){
-            $this->db->where('language_id',$s['language_id']);
-        }
-        if(isset($s['parent']) && !empty($s['parent'])){
-            $this->db->where('c.parent_id=0');
-        }
-        $this->db->order_by("c.id DESC");
-        $query = $this->db->get("tbl_categories c");
+
+        $this->db->order_by("c._id DESC");
+        $query = $this->db->get("tbl_customers c");
         if ($query->num_rows() > 0) {
             return $query->result_array();
         }
     }
+
 }

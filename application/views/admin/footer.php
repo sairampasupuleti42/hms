@@ -3,7 +3,7 @@
     <div class="pull-right hidden-xs">
       <b></b> 
     </div>
-    <strong>Copyright &copy; <?php echo date('Y');?> <a href="<?php echo base_url();?>">Mosapp</a>.</strong> All rights
+    <strong>Copyright &copy; <?php echo date('Y');?> <a href="<?php echo base_url();?>"><?php echo @$app_title;?></a>.</strong> All rights
     reserved.
   </footer>
   <!-- Add the sidebar's background. This div must be placed

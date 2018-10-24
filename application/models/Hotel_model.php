@@ -52,7 +52,7 @@ class Hotel_model extends CI_Model
         }
     }
 
-    function searchHotels($s = array(), $mode = "DATA")
+    function searchHotels($s = array(), $mode = "   ")
     {
         if ($mode == "CNT") {
             $this->db->select("COUNT(1) as CNT");

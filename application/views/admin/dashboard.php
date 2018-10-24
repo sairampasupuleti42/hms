@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-               Dashboards
+               Dashboard
             <!--                <small>Control panel</small>-->
         </h1>
         <ol class="breadcrumb">
@@ -20,9 +20,9 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?php echo !empty($bc) ? $bc['booking_cnt']:'0';?></h3>
 
-              <p>New Orders</p>
+              <p>Bookings</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -35,9 +35,10 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-              <p>Bounce Rate</p>
+              <h3><?php echo !empty($hc) ? $hc['hotel_cnt']:'0';?></h3>
+
+              <p>Hotels</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -50,9 +51,9 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?php echo !empty($cc) ? $cc['cust_cnt']:'0';?></h3>
 
-              <p>User Registrations</p>
+              <p>Customers</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -65,9 +66,9 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3>0</h3>
 
-              <p>Unique Visitors</p>
+              <p>Rooms Available</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

@@ -8,12 +8,14 @@ class Admin extends MY_Controller
         $this->load->library('session');
         $this->load->model('Admin_model', 'admin', TRUE);
         $this->load->model('Hotel_model', 'hapi', TRUE);
+        $this->load->model('Customer_model', 'customer', TRUE);
+        $this->header_data['app_title']="HMS";
     }
 
     function auth()
     {
         $data = array();
-        $data['page_title']="Mosapp Hotels";
+        $data['page_title']="HMS";
         if (!empty($_POST['LOGIN']) && !empty($_POST['email']) && !empty($_POST['password'])) {
             $user = $this->admin->login(['email' => $_POST['email'], 'password' => $_POST['password']]);
             if (!empty($user['_id'])) {
@@ -44,6 +46,9 @@ class Admin extends MY_Controller
         //$this->_login();
         _logged();
         $data['page_title']="Dashboard";
+        $data['hc']=$this->hapi->getHotelCnt();
+        $data['bc']=$this->admin->getBookingsCnt();
+        $data['cc']=$this->admin->getCustomerCnt();
         $this->_template('admin/dashboard',$data);
     }
 
@@ -65,7 +70,8 @@ class Admin extends MY_Controller
     {
         $data = array();
         $data['page_title']="Customers";
-        $this->_template('admin/customers/index');
+        $data['customers']=$this->customer->searchCustomers();
+        $this->_template('admin/customers/index',$data);
     }
 
     function hotels($act = '', $st = '')
@@ -103,9 +109,13 @@ class Admin extends MY_Controller
                 $pdata['hotelType'] = !empty($_POST['hotelType']) ? $_POST['hotelType'] : '';
                 $pdata['hotelAddedOn'] = date('Y-m-d H:i:s');
                 $pdata['hotelStatus'] = '1';
+                $fol='/uploads/hotels/'.$pdata['hotelPermaLink'].'/';
+                createFolder($fol);
+                uploadFiles($fol,'hotelImages');
                 $pdata['hotelAddedBy'] = !empty($_SESSION['USER_ID']) ? $_SESSION['USER_ID'] : '1';
                 $hotelCount = $this->hapi->getHotelCnt();
                 if (!$this->hapi->checkHotelInDB($pdata['hotelName'])) {
+                    $pdata['hotelImages']=$fol;
                     $hotel_pk_id = $this->hapi->addHotel($pdata);
                     if (!empty($hotel_pk_id)) {
                         $qdata['hotel_pk_id'] = $hotel_pk_id;
